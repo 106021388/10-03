@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class MainFrame extends JFrame{
         private Container cp;
         private JButton jbtnr = new JButton("重新猜");
@@ -40,13 +41,13 @@ public class MainFrame extends JFrame{
                  return;
              }
              if (input_ans > ans)
-            jta.append(input_ans +  "比答案小!\n");
+             jta.append(input_ans +  "比答案小!\n");
         else if (input_ans < ans)
-            jta.append(input_ans + "比答案大!\n");
+             jta.append(input_ans + "比答案大!\n");
         else
-             jta.append(input_ans +"你答對了!\n");
+            jta.append(input_ans +"你答對了!\n");
             jtf.setText("");
-             jtf.requestFocus();
+            jtf.requestFocus();
          }
      });
   jbtnr.addActionListener(new ActionListener() {
@@ -62,7 +63,7 @@ public class MainFrame extends JFrame{
  jbtna.addActionListener(new ActionListener() {
      @Override
      public void actionPerformed(ActionEvent e) {
-        jta.append("答案是:"+ ans + "\n");
+         jta.append("答案是:"+ ans + "\n");
          jtf.setText("");
          jtf.requestFocus();
 
