@@ -1,16 +1,17 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    public class MainFrame extends JFrame{
+public class MainFrame extends JFrame{
         private Container cp;
-        private JButton jbtnr = new JButton("重新開始");
+        private JButton jbtnr = new JButton("重新猜");
         private JButton jbtng = new JButton("猜看看");
         private JButton jbtna = new JButton("答案");
-        private JTextArea jta = new JTextArea();
+        private JTextArea jta = new JTextArea(10,20);
         private JPanel jpn = new JPanel();
-        private JTextField jtf = new JTextField("");
-        private int count = 0;
+        private JTextField jtf = new JTextField(5);
+        private int c = 0;
         public MainFrame() {
             initComp();
         }
@@ -22,12 +23,30 @@ import java.awt.event.ActionEvent;
          cp.add(jbtng);
          cp.add(jbtna);
          cp.add(jpn);
+         jpn.add(jta);
+         cp.setLayout(new GridLayout(1,4,5,5));
         jbtnr.setBounds(0,0,100,40);
         jbtng.setBounds(120,125,80,40);
         jbtna.setBounds(0,170,80,40);
-        jtf.setLocation(175,0);
-        jtf.setSize(100,100);
+        jtf.setBounds(175,0,50,50);
         jpn.add(jtf);
+     jbtng.addActionListener(new ActionListener() {
+         @Override
+         public void actionPerformed(ActionEvent e) {
+
+         }
+     });
+
+
+
+
+
+
+
+
+
+
+
 
 
         }
