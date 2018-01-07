@@ -18,7 +18,7 @@ public class MainFrame extends JFrame{
             initComp();
         }
      private void initComp(){
-         this.setBounds(100,100,350,250);
+         this.setBounds(100,100,1000,800);
          this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
          cp = this.getContentPane();
          cp.add(jbtnr);
