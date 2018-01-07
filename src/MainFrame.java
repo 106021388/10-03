@@ -2,7 +2,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class MainFrame extends JFrame{
         private Container cp;
         private JButton jbtnr = new JButton("重新猜");
@@ -11,7 +10,8 @@ public class MainFrame extends JFrame{
         private JTextArea jta = new JTextArea(10,20);
         private JPanel jpn = new JPanel();
         private JTextField jtf = new JTextField(5);
-        private int c = 0;
+        private final int maxInt = 99;
+        private int ans = 0;
         public MainFrame() {
             initComp();
         }
@@ -33,18 +33,41 @@ public class MainFrame extends JFrame{
      jbtng.addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
-
+             int input_ans = 0;
+             try {
+                 input_ans = Integer.parseInt(jtf.getText());
+             } catch (Exception ex) {
+                 return;
+             }
+             if (input_ans > ans)
+            jta.append(input_ans +  "比答案小!\n");
+        else if (input_ans < ans)
+            jta.append(input_ans + "比答案大!\n");
+        else
+             jta.append(input_ans +"你答對了!\n");
+            jtf.setText("");
+             jtf.requestFocus();
          }
      });
+  jbtnr.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+          jtf.setText("");
+          jta.setText("");
+          java.util.Random r = new java.util.Random();
+          ans = r.nextInt(maxInt) + 1;
+          jtf.requestFocus();
+      }
+  });
+ jbtna.addActionListener(new ActionListener() {
+     @Override
+     public void actionPerformed(ActionEvent e) {
+        jta.append("答案是:"+ ans + "\n");
+         jtf.setText("");
+         jtf.requestFocus();
 
-
-
-
-
-
-
-
-
+     }
+ });
 
 
 
